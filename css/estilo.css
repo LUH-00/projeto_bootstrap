@@ -7,3 +7,6 @@
 
 /*EFEITO MENO ATIVO*/
 .active{border-bottom: 1px solid #fff;}
+
+/* PÁGINA CADATRO */
+.altura{height: 300px; overflow-y:scroll ;}
