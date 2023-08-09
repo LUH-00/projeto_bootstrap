@@ -49,12 +49,57 @@ endereco.addEventListener("blur", function(){
 
 let email = document.querySelector("#email")
 let confirmar = document.querySelector("#confirmar")
-let minusculo = email.value.toLowerCase()// tornando o conteúdo do E-mail minúsculo
+
 
 email.addEventListener("keyup", function(){
+    let minusculo = email.value.toLowerCase()// tornando o conteúdo do E-mail minúsculo
     confirmar.value = email.value
-    if(minusculo.indexOf("@") == -1 || minusculo.indexOf(".com") == -1){}
-    else{}
+    if(minusculo.indexOf('@') == -1 || minusculo.indexOf('.') == -1){
+        console.log("Email inválido")
+        //email .style.border = "2px solid red"
+        email.classList.add("border-danger")
+        email.classList.remove("border-success")
+    }
+    
+    else{
+       console.log ("Email válido")
+       //email .style.border = "2px solid green" 
+       email.classList.add("border-success")
+       email.classList.remove("border-danger")
+    }
     console.log (email.value.indexOf("@"))
 })
 
+
+let senha = document.querySelector("#senha")
+let btn_olho = document.querySelector(".fa-eye")
+
+// ()=>{} into é uma errow function, ou seja, uma versão resumida da função anônima.
+btn_olho.addEventListener("click",()=>{
+    if(btn_olho.classList.contains("fa-eye")){
+        console.log("A classe existe")
+        btn_olho.classList.remove ("fa-eye")
+        btn_olho.classList.add ("fa-eye-slash")
+
+        senha.setAttribute("type","text")
+
+    }
+    else{
+        console.log("A classe não existe")
+        btn_olho.classList.remove("fa-eye-slash")
+        btn_olho.classList.add("fa-eye")
+
+        senha.setAttribute("type","password")
+    }
+})
+
+//PEGANDO DADOS DO CAMPO RADIO
+let escolaridade = document.querySelectorAll("input[name=escolaridade]")
+let btnEscolaridade = document.querySelector("#btnEscolaridade")
+
+btnEscolaridade.addEventListener("click", (evento)=>{
+    //console.log(evento)
+    evento.preventDefault() //Está função ira impedir o comportamento padrão do botão.
+
+    console.log(escolaridade[2])
+})
